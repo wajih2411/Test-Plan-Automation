@@ -49,5 +49,5 @@ jobs:
       - name: Run ZAP security scan
         uses: zaproxy/action-full-scan@v1
         with:
-          target: 'https://your-target-url.com'
+          target: 'https://thinking-tester-contact-list.herokuapp.com/'
           report: 'true'
