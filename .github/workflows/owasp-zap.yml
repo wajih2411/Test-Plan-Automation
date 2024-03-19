@@ -23,5 +23,3 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         docker_name: 'owasp/zap2docker-stable'  # Use the stable docker image
         target: 'https://thinking-tester-contact-list.herokuapp.com/'  # The target URL for the scan
-        rules_file_name: '.zap/rules.tsv'  # Path to a file containing the desired rules configuration (optional)
-        cmd_options: '-a'  # Additional command line options for the ZAP baseline scan (optional)
