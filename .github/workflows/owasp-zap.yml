@@ -27,15 +27,15 @@ jobs:
 
     - name: Run ZAP Baseline Scan
       run: |
-        const Octokit = require("@octokit/rest");
+        const { Octokit } = require("@octokit/rest");
         const octokit = new Octokit({
-          auth: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWM2OTcxNmE2OGQ4MzAwMTMyNTg0OTQiLCJpYXQiOjE3MTEzMTYwMjJ9.tLs2z9hMybMoOageR_MJrO5JJf3isM7DMesLqfEklws",
+          auth: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWM2OTcxNmE2OGQ4MzAwMTMyNTg0OTQiLCJpYXQiOjE3MTEzMTY3Mjl9.orRrRmlWwy_1BzUp5k5wBuUkgofNgQ4CX5ICUCNQpqo",
         });
-
+        
         const { spawnSync } = require('child_process');
-
+        
         console.log('Alerts present in the current report:', process.env.ZAP_ALERTS_PRESENT);
-
+        
         if (process.env.ZAP_ALERTS_PRESENT === 'true') {
           console.log('ZAP Scan detected alerts. Failing the workflow.');
           process.exit(1);
