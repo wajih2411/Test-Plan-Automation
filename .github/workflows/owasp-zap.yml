@@ -20,6 +20,6 @@ jobs:
     - name: Run ZAP Baseline Scan
       uses: zaproxy/action-baseline@v0.4.0
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWM2OTcxNmE2OGQ4MzAwMTMyNTg0OTQiLCJpYXQiOjE3MTEzMTU4MDl9.sO554wCgm4-cK5wEXUxNzbk09yOjE22bThv0GqeSVc0  # Add the provided token here
         docker_name: 'owasp/zap2docker-stable'  # Use the stable docker image
         target: 'https://thinking-tester-contact-list.herokuapp.com/'  # The target URL for the scan
