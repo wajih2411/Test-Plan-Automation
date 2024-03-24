@@ -27,7 +27,7 @@ jobs:
 
     - name: Run ZAP Baseline Scan
       run: |
-        const { Octokit } = require("@octokit/rest");
+        const Octokit = require("@octokit/rest");
         const octokit = new Octokit({
           auth: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWM2OTcxNmE2OGQ4MzAwMTMyNTg0OTQiLCJpYXQiOjE3MTEzMTYwMjJ9.tLs2z9hMybMoOageR_MJrO5JJf3isM7DMesLqfEklws",
         });
