@@ -15,7 +15,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # Add steps to install Node.js, npm, and Cypress
       - name: Install Node.js and npm
         uses: actions/setup-node@v2
         with:
@@ -33,7 +32,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # Add steps to install Newman or Postman and execute API tests
 
   security-tests:
     runs-on: ubuntu-latest
@@ -41,11 +39,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # Add steps to install OWASP ZAP
       - name: Install OWASP ZAP
         uses: zaproxy/action-full-scan@v1
 
-      # Run ZAP security scan
       - name: Run ZAP security scan
         uses: zaproxy/action-full-scan@v1
         with:

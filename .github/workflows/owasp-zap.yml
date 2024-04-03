@@ -1,13 +1,12 @@
 name: OWASP ZAP Baseline Scan
 
-# This workflow will trigger on a push to any branch and on pull requests to main
 on:
   push:
     branches:
-      - '**'  # Trigger for pushes to all branches
+      - '**'  
   pull_request:
     branches:
-      - main  # Trigger for pull requests to main
+      - main  
 
 jobs:
   zap_scan:
