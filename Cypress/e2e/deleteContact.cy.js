@@ -1,20 +1,25 @@
-describe('Delete Contact', () => {
-    it('should delete a contact after logging in', () => {
-      // Visit the website
-      cy.visit('https://thinking-tester-contact-list.herokuapp.com/');
-      
-      // Log in
-      cy.get('#email').type('wajih@gmail.com');
-      cy.get('#password').type('nov022001');
-      cy.get('#submit').click();
-  
-      // Click on the first contact in the list (assuming there's at least one contact)
-      cy.get('.contactTableBodyRow').first().click();
-  
-      // Click on the "Delete" button
-      cy.get('#delete').click();
-  
+describe('Delete Contact Test', () => {
+  it('should delete a contact after logging in', () => {
+    cy.intercept('POST', 'https://thinking-tester-contact-list.herokuapp.com/login', {
+      statusCode: 200,
+      body: {
+        token: 'your-authentication-token' // Mock authentication token
+      }
+    }).as('loginRequest');
 
-    });
+    cy.visit('https://thinking-tester-contact-list.herokuapp.com/login');
+
+    cy.get('#email').type('wajih@gmail.com');
+    cy.get('#password').type('nov022001');
+    cy.get('#submit').click();
+
+    cy.intercept('DELETE', 'https://thinking-tester-contact-list.herokuapp.com/contacts/*', {
+      statusCode: 204 
+    }).as('deleteContactRequest');
+
+    cy.get('.contactTableBodyRow').first().click();
+
+    cy.get('#delete').click();
+
   });
-  
+});
