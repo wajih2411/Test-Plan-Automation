@@ -1,6 +1,5 @@
 describe('Add Contact Test', () => {
   it('should successfully add a contact after logging in', () => {
-      // Intercept the login request and mock the response
       cy.intercept('POST', 'https://thinking-tester-contact-list.herokuapp.com/login', {
           statusCode: 200,
           body: {
@@ -8,19 +7,15 @@ describe('Add Contact Test', () => {
           }
       }).as('loginRequest');
 
-      // Visit the login page explicitly
       cy.visit('https://thinking-tester-contact-list.herokuapp.com/login');
 
-      // Fill out the login form and submit
       cy.get('#email').type('wajih@gmail.com');
       cy.get('#password').type('nov022001');
       cy.get('#submit').click();
 
-      // Intercept the contact creation request and mock the response
       cy.intercept('POST', 'https://thinking-tester-contact-list.herokuapp.com/contacts', {
           statusCode: 201,
           body: {
-              // Mock response body for the newly created contact
               firstName: 'John',
               lastName: 'Doe',
               birthdate: '1970-01-01',
@@ -35,11 +30,8 @@ describe('Add Contact Test', () => {
           }
       }).as('contactRequest');
 
-      // Proceed with adding the contact
-      // For example, clicking on a "Add Contact" button to navigate to the add contact page
       cy.get('#add-contact').click();
 
-      // Fill out the form fields
       cy.get('#firstName').type('John');
       cy.get('#lastName').type('Doe');
       cy.get('#birthdate').type('1970-01-01');
@@ -52,7 +44,6 @@ describe('Add Contact Test', () => {
       cy.get('#postalCode').type('12345');
       cy.get('#country').type('USA');
 
-      // Submit the form
       cy.get('#submit').click();
   });
 });
