@@ -13,7 +13,7 @@ describe('User Registration Test', () => {
 
     cy.get('#firstName').type('John');
     cy.get('#lastName').type('Doe');
-    cy.get('#email').type('johndoe1206@example.com');
+    cy.get('#email').type('johndoe12066@example.com');
     cy.get('#password').type('password123');
 
     cy.get('form').submit();
